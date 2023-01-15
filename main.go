@@ -6,7 +6,6 @@ import (
 	"greenplicity/certificates"
 )
 
-// The main func
 func main() {
 	// create new echo instance
 	e := echo.New()
@@ -36,7 +35,6 @@ func createCertificate(c echo.Context) error {
 	newCertificate := certificates.NewEnergyCertificate(producerId, mwh, validUntil, certificate)
 
 	// save certificate to storage
-	// code to save the certificate to storage
 
 	// return certificate ID
 	return c.JSON(http.StatusCreated, map[string]string{"id": newCertificate.ID})
@@ -47,7 +45,6 @@ func verifyCertificate(c echo.Context) error {
 	certificateId := c.Param("id")
 
 	// get certificate from storage
-	// code to get the certificate from storage
 
 	// verify certificate
 	if err := certificate.VerifyCertificate(); err != nil {
