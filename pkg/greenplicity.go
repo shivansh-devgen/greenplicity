@@ -1,4 +1,4 @@
-package application 
+package application
 
 import (
 	"context"
@@ -24,6 +24,7 @@ func NewFilecoinClient(apiAddr string) (*FilecoinClient, error) {
 	if err != nil {
 		return nil, err
 	}
+	fmt.Printf("API ADDR", apiAddr)
 	return &FilecoinClient{client: client}, nil
 }
 
