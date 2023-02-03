@@ -36,12 +36,15 @@ func (fc *FilecoinClient) SignMessage(privateKey crypto.PrivateKey, message []by
 // VerifySignature verifies a signature on a message
 func (fc *FilecoinClient) VerifySignature(publicKey crypto.PublicKey, message []byte, signature []byte) error {
 	ok, err := crypto.VerifySignature(publicKey, message, signature)
+
 	if err != nil {
 		return err
 	}
+
 	if !ok {
 		return errors.New("signature verification failed")
 	}
+
 	return nil
 }
 
