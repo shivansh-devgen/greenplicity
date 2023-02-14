@@ -1,15 +1,18 @@
 package main
 
 import (
+	"greenplicity/certificates"
+
+	"github.com/go-chi/chi/middleware"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
-	"greenplicity/certificates"
 )
 
 func main() {
 	// create new echo instance
 	e := echo.New()
 
+	e.Use(middleware.LogEntry())
 	// middleware
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
@@ -54,4 +57,3 @@ func verifyCertificate(c echo.Context) error {
 	// return certificate data
 	return c.JSON(http.StatusOK, certificate)
 }
-
